@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/dispImage2"
+        android:id="@+id/hantei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="94dp"
@@ -38,6 +38,7 @@
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="100dp"
         android:text="start"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,26 +51,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="グー"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="544dp" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tyoki_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
     <Button
         android:id="@+id/paa_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="パー"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteX="293dp"
-        tools:layout_editor_absoluteY="544dp" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tyoki_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
     <Button
         android:id="@+id/tyoki_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="チョキ"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="544dp" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/paa_button"
+        app:layout_constraintStart_toEndOf="@+id/guu_button"
+        app:layout_constraintTop_toBottomOf="@+id/startButton"
+        app:layout_constraintVertical_bias="0.485" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

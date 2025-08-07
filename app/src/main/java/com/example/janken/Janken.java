@@ -22,8 +22,9 @@ public class Janken extends AppCompatActivity{
     private  Button tyokiButton;
     private  Button paaButton;
     private ImageView myImageView;
-    private ImageDisplayHelper imageHelper;
+    private ImageView myImageView2;
 
+    private ImageDisplayHelper imageHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,21 +37,39 @@ public class Janken extends AppCompatActivity{
         paaButton = findViewById(R.id.paa_button);
 
         myImageView = findViewById(R.id.dispImage);
+        myImageView2 = findViewById(R.id.hantei);
         imageHelper = new ImageDisplayHelper();
 
-        imageHelper.startLoop(myImageView);
+        imageHelper.startLoop(myImageView, myImageView2);
 
 
         guuButton.setOnClickListener(view ->{
-            imageHelper.stopLoop(0);
+            imageHelper.stopLoop(myImageView2,0);
+            tyokiButton.setVisibility(ImageView.INVISIBLE);
+            paaButton.setVisibility(ImageView.INVISIBLE);
+            startButton.setVisibility(ImageView.VISIBLE);
         });
 
         tyokiButton.setOnClickListener(view ->{
-            imageHelper.stopLoop(1);
+            imageHelper.stopLoop(myImageView2,1);
+            guuButton.setVisibility(ImageView.INVISIBLE);
+            paaButton.setVisibility(ImageView.INVISIBLE);
+            startButton.setVisibility(ImageView.VISIBLE);
         });
 
         paaButton.setOnClickListener(view ->{
-            imageHelper.stopLoop(2);
+            imageHelper.stopLoop(myImageView2,2);
+            guuButton.setVisibility(ImageView.INVISIBLE);
+            tyokiButton.setVisibility(ImageView.INVISIBLE);
+            startButton.setVisibility(ImageView.VISIBLE);
+        });
+
+        startButton.setOnClickListener(view ->{
+            guuButton.setVisibility(ImageView.VISIBLE);
+            tyokiButton.setVisibility(ImageView.VISIBLE);
+            paaButton.setVisibility(ImageView.VISIBLE);
+            startButton.setVisibility(ImageView.INVISIBLE);
+            imageHelper.startLoop(myImageView, myImageView2);
         });
     }
 }
